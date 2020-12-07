@@ -1,0 +1,32 @@
+// A C++ program to determine the shortest path of the graph
+#include <cstdlib>
+#include <iostream>
+#include <fstream>
+
+#include "graph.h"
+using namespace std;
+ 
+int main(int argc, char* argv[])
+{
+    if (argc != 4) 
+    {
+        cerr << "Incorrect nubmer of command line arguments." << endl;
+        cerr << "Usage: "<< argv[0] << " <an input file>" << endl;
+        return EXIT_FAILURE;
+    }
+
+    // read data from an input file
+    ifstream inf(argv[1]);
+    if (!inf.is_open()) 
+    {
+        // check if the file can be opened
+        cerr << "Error: cannot open an input file \"" << argv[1] << "\"." << endl;
+        return EXIT_FAILURE;
+    }
+
+	Graph graph(argv[1], argv[2], argv[3]);
+	
+
+    return EXIT_SUCCESS;
+}
+
